@@ -1,6 +1,6 @@
-//------------------Input------------------------
+//------------------Form_Group------------------------
 var Form_Group = function(ele) {
-	this.ele = ele;
+  this.ele = ele;
   this.prompt = ele.children(".prompt");
   this.label = ele.children("label")
   this.input = ele.children("input");
@@ -10,7 +10,7 @@ Form_Group.prototype.show = function() {
   this.ele.removeClass("hidden");
   if(this.prompt.length) {
     this.label.addClass("hidden");
-  	this.prompt.removeClass("hidden");
+    this.prompt.removeClass("hidden");
   }
   this.input.focus();
 }
@@ -54,7 +54,7 @@ Form.prototype.next_form_group = function() {
 }
 
 Form.prototype.show_next_form_group = function() {
-	this.form_group.hide();
+  this.form_group.hide();
   this.form_group = this.next_form_group()
   this.form_group.show();
 }
@@ -65,7 +65,7 @@ $(document).ready(function(){
   form.hide();
   form.form_group.show();
   $(window).keydown(function(event){
-  	if((event.keyCode == 13 || event.keyCode == 9) && form.form_group.index() < form.form_groups.length -1) {
+    if((event.keyCode == 13 || event.keyCode == 9) && form.form_group.index() < form.form_groups.length -1) {
       event.preventDefault();
       form.show_next_form_group();
     }
